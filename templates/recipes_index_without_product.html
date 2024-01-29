@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-12 col-md-10 col-lg-11 mx-auto border rounded-3 bg-light p-2">
+        <h1 class="display-3">Повареная книга</h1>
+        <div class="lead">Рецепты без {{ product_name }}
+        </div>
+    </div>
+    {% include 'table.html' %}
+{% endblock %}

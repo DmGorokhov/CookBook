@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from .views import add_product_to_recipe
+
 urlpatterns = [
+    path('add_product_to_recipe/', add_product_to_recipe, name='put_product_to_recipe'),
     path('admin/', admin.site.urls),
 ]

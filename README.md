@@ -23,9 +23,9 @@ ___
 ```bash
 curl -sSL https://install.python-poetry.org | python3 -
 ```
-
 Details on installing and using the **Poetry** package are available in [official documentation](https://python-poetry.org/docs/).
 To install **Poetry** you need **Python 3.7+** use the information from the official website [python.org](https://www.python.org/downloads/)
+
 ---
 
 ### 3. Installation

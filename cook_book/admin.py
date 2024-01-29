@@ -28,4 +28,3 @@ class RecipeAdmin(admin.ModelAdmin):
         ('created_at', DateFieldListFilter),
         ('updated_at', DateFieldListFilter)
     )
-

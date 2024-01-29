@@ -9,11 +9,14 @@ from .cook_services import (add_or_update_product_to_recipe,
                             increment_products_times_cooked,
                             find_recipes_withount_product)
 
+from .utils import handle_db_errors
+
 
 class HomeView(TemplateView):
     template_name = 'home.html'
 
 
+@handle_db_errors
 @require_http_methods(['GET'])
 def add_product_to_recipe(request):
     recipe_id = request.GET.get('recipe_id')
@@ -24,6 +27,7 @@ def add_product_to_recipe(request):
     return HttpResponse('Product added to recipe successfully.', status=200)
 
 
+@handle_db_errors
 @require_http_methods(['GET'])
 def cook_recipe(request):
     recipe_id = request.GET.get('recipe_id')
@@ -34,6 +38,7 @@ def cook_recipe(request):
     return HttpResponse("Recipe has been cooked.")
 
 
+@handle_db_errors
 @require_http_methods(['GET'])
 def show_recipes_without_product(request):
     product_id = request.GET.get('product_id')

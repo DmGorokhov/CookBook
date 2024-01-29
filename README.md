@@ -73,17 +73,18 @@ Request example in terminal with curl:
 curl -X GET 'http://localhost:8000/add_product_to_recipe?recipe_id=1&product_id=2&weight=70'
 ```
 
-3. http://localhost:8000/cook_recipe
-Increases by one the number of prepared meals for each product in the specified recipe
+3. http://localhost:8000/cook_recipe with query parameter recipe_id
+Increases by one the number of prepared meals for each product in the specified recipe.
+Full request look like *http://localhost:8000/cooK_recipe?recipe_id=1*  
 Request example in terminal with curl:
 ```
-curl -X GET 'http://localhost:8000/cook_recipe'
+curl -X GET 'http://localhost:8000/cook_recipe?recipe_id=1'
 ```
 4. http://localhost:8000/show_recipes_without_product with query parameter product_id
 Render HTML page with a table of all recipes in which the specified product is absent or  
 present in an amount less than 10 grams. 
-Full request look like *http://localhost:8000/add_product_to_recipe?recipe_id=1*  
+Full request look like *http://localhost:8000/show_recipes_without_product?product_id=1*  
 Request example in terminal with curl:
 ```
-curl -X GET 'http://localhost:8000/add_product_to_recipe?recipe_id=1'
+curl -X GET 'http://localhost:8000/show_recipes_without_product?product_id=1'
 ```

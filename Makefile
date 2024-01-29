@@ -11,6 +11,10 @@ migrate: make-migration
 
 build: install migrate
 
+setup: build
+	echo Create a super user
+	poetry run python manage.py createsuperuser
+
 dev:
 		poetry run python manage.py runserver
 

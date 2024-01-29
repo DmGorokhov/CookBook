@@ -22,6 +22,7 @@ class HomeView(TemplateView):
 def add_product_to_recipe(request):
     new_recipe_params = RecipeParams(**request.GET.dict())
     add_or_update_product_to_recipe(**new_recipe_params.dict())
+
     return HttpResponse('Product added to recipe successfully.', status=200)
 
 

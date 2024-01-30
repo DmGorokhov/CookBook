@@ -11,8 +11,8 @@ def add_or_update_product_to_recipe(recipe_id, product_id, weight):
     )
 
 
-def get_recipe_products(recipe: Recipe):
-    recipe_products = (RecipeProduct.objects.filter(recipe=recipe).
+def get_recipe_products(recipe_id: int):
+    recipe_products = (RecipeProduct.objects.filter(recipe_id=recipe_id).
                        prefetch_related('product').
                        values_list('product__id', flat=True))
     return recipe_products

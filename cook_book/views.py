@@ -9,6 +9,8 @@ from .cook_services import (add_or_update_product_to_recipe,
                             increment_products_times_cooked,
                             find_recipes_withount_product)
 
+from .tasks import update_products_times_cooked
+
 from .utils import handle_db_errors
 from .ParamsSchemas import RecipeParams, OnlyRecipeID, OnlyProductID
 
@@ -30,10 +32,9 @@ def add_product_to_recipe(request):
 @require_http_methods(['GET'])
 def cook_recipe(request):
     recipe_id = OnlyRecipeID(**request.GET.dict()).recipe_id
-    recipe = get_object_or_404(Recipe, id=recipe_id)
+    get_object_or_404(Recipe, id=recipe_id)
 
-    recipe_products_ids = get_recipe_products(recipe)
-    increment_products_times_cooked(recipe_products_ids)
+    update_products_times_cooked.delay(recipe_id)
     return HttpResponse("Recipe has been cooked.")
 
 

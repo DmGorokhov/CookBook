@@ -78,7 +78,7 @@ Increases by one the number of prepared meals for each product in the specified 
 Full request look like *http://localhost:8000/run_cook_recipe?recipe_id=1*  
 Request example in terminal with curl:
 ```
-curl -X GET 'http://localhost:8000/run_cook_recipe ?recipe_id=1'
+curl -X GET 'http://localhost:8000/run_cook_recipe?recipe_id=1'
 ```
 4. http://localhost:8000/recipes_without_product with query parameter product_id
 Render HTML page with a table of all recipes in which the specified product is absent or  

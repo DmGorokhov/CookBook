@@ -27,7 +27,8 @@ def find_recipes_withount_product(product_id: int):
     min_weight_for_accounting = 10  # grams
     recipes_without_product = (
         Recipe.objects.filter(
-            ~Q(recipe_products__product__id=product_id) | Q(recipe_products__weight__lt=min_weight_for_accounting) # noqa E501
-        ).distinct())
+            ~Q(recipe_products__product__id=product_id) | Q(
+                recipe_products__product__id=product_id,
+                recipe_products__weight__lt=min_weight_for_accounting)).distinct())  # noqa E501
 
     return recipes_without_product
